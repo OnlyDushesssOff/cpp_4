@@ -129,30 +129,6 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
-Vector.o: Vector.cpp.o
-.PHONY : Vector.o
-
-# target to build an object file
-Vector.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Vector.cpp.o
-.PHONY : Vector.cpp.o
-
-Vector.i: Vector.cpp.i
-.PHONY : Vector.i
-
-# target to preprocess a source file
-Vector.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Vector.cpp.i
-.PHONY : Vector.cpp.i
-
-Vector.s: Vector.cpp.s
-.PHONY : Vector.s
-
-# target to generate assembly for a file
-Vector.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Vector.cpp.s
-.PHONY : Vector.cpp.s
-
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -186,9 +162,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... main"
-	@echo "... Vector.o"
-	@echo "... Vector.i"
-	@echo "... Vector.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

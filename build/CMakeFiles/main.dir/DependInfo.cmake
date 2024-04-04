@@ -8,7 +8,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/s23380405@unn.global/Projects/cpp_4/Vector.cpp" "CMakeFiles/main.dir/Vector.cpp.o" "gcc" "CMakeFiles/main.dir/Vector.cpp.o.d"
   "/home/s23380405@unn.global/Projects/cpp_4/main.cpp" "CMakeFiles/main.dir/main.cpp.o" "gcc" "CMakeFiles/main.dir/main.cpp.o.d"
   )
 

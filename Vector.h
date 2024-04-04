@@ -18,7 +18,23 @@ private:
     }
 
 public:
-    Vector() = delete; // если дефолтный конструктор не нужен, то пишем так, просто не написать его не получится
+    Vector(){// если дефолтный конструктор не нужен, то пишем так, просто не написать его не получится
+        _size = 10;
+        _array = new T[_size];
+        for(int i = 0; i < _size; i++){
+            _array[i] = 0;
+        }
+    }
+
+    Vector(const Vector& tmp){
+        _size = tmp._size;
+        _array = new T[_size];
+        for(int i = 0; i < _size; i++){
+            _array[i] = tmp._array[i];
+        }
+        _leng = tmp._leng;
+    }
+
     Vector(size_t size, T* array) :_size(size), _array(new T[size]) {// если используются шаблоны, то лучше писать это в хидере, в срр это будет долго и нудно
         for (int i = 0; i < _size; i++) {
             _array[i] = array[i];
@@ -39,8 +55,8 @@ public:
         int i = 0;
         for (auto elem = list.begin(); elem != list.end(); elem++, i++) {
             _array[i] = *elem;
-        _leng = Leng();
         }
+        _leng = Leng();
     }
 
     ~Vector() { // деструктор, самоудаляется, когда перестает испоользоваться
@@ -69,6 +85,7 @@ public:
             array[i] = _array[i] / _leng;
         }
         Vector<double> res = Vector<double>(_size, array);
+        delete [] array;
         return res;
     }
 
@@ -96,6 +113,7 @@ public:
             array_res[i] = _array[i] + array[i];
         }
         Vector vector = Vector(size, array_res);
+        delete [] array_res;
         return vector;
     }
 
@@ -112,6 +130,7 @@ public:
             array_res[i] = _array[i] - array[i];
         }
         Vector vector = Vector(size, array_res);
+        delete [] array_res;
         return vector;
     }
     
@@ -129,19 +148,17 @@ public:
         return scal;
     }
 
-    Vector operator=(const Vector& vec){
-        _size = vec.GetSize();
-        _leng = vec.GetLeng();
+    Vector& operator=(const Vector& vec){
+        if(vec._size > _size || _array == nullptr){ // проверка на то, не указывает ли указатель на что-то
+            delete [] _array;
+            _array = new T[vec._size];
+        }
+        _size = vec._size;
+        _leng = vec._leng;
         for(int i = 0; i < _size; i++){
             _array[i] = vec._array[i];
         }
         return *this;
-    }
-
-    inline void SetArray( T* array){
-        for(int i = 0; i < _size; i++){
-            _array[i] = array[i];
-        }
     }
 };
 /* Домашка:
