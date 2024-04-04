@@ -132,12 +132,16 @@ public:
     Vector operator=(const Vector& vec){
         _size = vec.GetSize();
         _leng = vec.GetLeng();
-        _array = vec.GetArray();
+        for(int i = 0; i < _size; i++){
+            _array[i] = vec._array[i];
+        }
         return *this;
     }
 
     inline void SetArray( T* array){
-        _array = array;
+        for(int i = 0; i < _size; i++){
+            _array[i] = array[i];
+        }
     }
 };
 /* Домашка:
