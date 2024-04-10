@@ -17,6 +17,19 @@ public:
         }
     }
 
+    Matrix(size_t size, Vector<T>* vec) {
+        _size = size;
+        _vectors = new Vector<T>[_size];
+        for(size_t i = 0; i < _size; i++){
+            _vectors[i] = Vector<T>(vec[0].GetSize());
+        }
+        for(int i = 0; i < _size; i++){
+            for(int j = 0; j < vec[0].GetSize(); j++){
+                _vectors[i][j] = vec[i][j];
+            }
+        }
+    }
+
     ~Matrix(){
         delete [] _vectors;
     }
@@ -34,6 +47,36 @@ public:
             os << matr._vectors[i] << std::endl;
         }
         return os;
+    }
+
+    template<typename F>
+    Matrix operator+(const Matrix<F> mat) const {
+        if(_size != mat._size || _vectors[0].GetSize() != mat._vectors[0].GetSize()){
+            std::cout << "Matrix: input error";
+            exit(0);
+        }
+        Matrix res = Matrix(_size, _vectors->GetSize());
+        for(int i = 0; i < _size; i++){
+            for(int j = 0; j < _vectors[0].GetSize(); j++){
+                res[i][j] = _vectors[i][j] + mat._vectors[i].GetArray()[j];
+            }
+        }
+        return res;
+    }
+
+    template<typename F>
+    Matrix operator-(const Matrix<F> mat) const {
+        if(_size != mat._size || _vectors[0].GetSize() != mat._vectors[0].GetSize()){
+            std::cout << "Matrix: input error";
+            exit(0);
+        }
+        Matrix res = Matrix(_size, _vectors->GetSize());
+        for(int i = 0; i < _size; i++){
+            for(int j = 0; j < _vectors[0].GetSize(); j++){
+                res[i][j] = _vectors[i][j] - mat._vectors[i].GetArray()[j];
+            }
+        }
+        return res;
     }
 
     /*1.перегрузить оператор сложения, разности, умножения(на обратную), деления

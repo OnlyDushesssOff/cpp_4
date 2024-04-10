@@ -1,7 +1,8 @@
 [
 {
-  "directory": "/home/s23380405@unn.global/Projects/cpp_4/build",
-  "command": "/usr/bin/g++-12    -fsanitize=address -std=c++17 -g -o CMakeFiles/main.dir/main.cpp.o -c /home/s23380405@unn.global/Projects/cpp_4/main.cpp",
-  "file": "/home/s23380405@unn.global/Projects/cpp_4/main.cpp"
+  "directory": "C:/Users/andre/Programs/Visual Studio code/C++/cpp_4/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  -std=c++17 -g -o CMakeFiles\\main.dir\\main.cpp.obj -c \"C:\\Users\\andre\\Programs\\Visual Studio code\\C++\\cpp_4\\main.cpp\"",
+  "file": "C:\\Users\\andre\\Programs\\Visual Studio code\\C++\\cpp_4\\main.cpp",
+  "output": "CMakeFiles\\main.dir\\main.cpp.obj"
 }
 ]

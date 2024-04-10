@@ -1,11 +1,5 @@
 #include "Matrix.h"
 
-template<typename T>
-double Scal_Proiz(const Vector<T>& vec1, const Vector<T>& vec2){ // если надо вернуть ссылку из функции, то и переменные, которые мы вносим, передаем через ссылку
-    double scal = vec1 * vec2;
-    return scal;
-}
-
 int main(){
 
     Vector<int> vector1 = {1, 2, 3, 4, 5};
@@ -18,7 +12,27 @@ int main(){
     Vector<int> vector3 = {8, 6};
     std::cout << "Leng = " << vector3.GetLeng() << std::endl;
     std::cout << "Normalize = " << vector3.Normaliz() << std::endl;
-    double res = Scal_Proiz(vector1, vector2);
-    std::cout << res <<std::endl;
+    
+    Vector<double>* vec1 = new Vector<double>[3];
+    for(int i = 0; i < 3; i++){
+        vec1[i] = Vector<double>(3);
+    }
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            vec1[i][j] = i * 3 + j + 1;
+        }
+    }
+    Matrix<double> mat1 = Matrix<double>(3, vec1);
 
+    Vector<double>* vec2 = new Vector<double>[3];
+    for(int i = 0; i < 3; i++){
+        vec2[i] = Vector<double>(3);
+    }
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            vec2[i][j] = (i * 3 + j + 1) * 10;
+        }
+    }
+    Matrix<double> mat2 = Matrix<double>(3, vec2);
+    std::cout << mat2 - mat1;
 }
